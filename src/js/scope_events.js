@@ -169,18 +169,18 @@
 		});
 
 		d.noUiListeners = moveEvent.concat(endEvent, outEvent);
-
+		
+		// Mark the target with a dragging state.
+		if ( scope_Handles.length > 1 ) {
+			addClass(scope_Target, options.cssClasses.drag);
+		}
+		
 		// Text selection isn't an issue on touch devices,
 		// so adding cursor styles can be skipped.
 		if ( event.cursor ) {
 
 			// Prevent the 'I' cursor and extend the range-drag cursor.
 			document.body.style.cursor = getComputedStyle(event.target).cursor;
-
-			// Mark the target with a dragging state.
-			if ( scope_Handles.length > 1 ) {
-				addClass(scope_Target, options.cssClasses.drag);
-			}
 
 			var f = function(){
 				return false;
